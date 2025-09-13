@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Stress Relief Chatbot</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #a7c7e7, #f7d9e3, #c2f0c2);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .chat-container {
+            width: 400px;
+            background: #ffffffee;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-box {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            font-size: 0.9rem;
+            background: #fdfdfd;
+        }
+
+        .chat-message {
+            margin: 10px 0;
+            max-width: 80%;
+            padding: 10px 14px;
+            border-radius: 15px;
+            line-height: 1.4;
+        }
+
+        .user {
+            margin-left: auto;
+            background: #dbeafe;
+            color: #1e3a8a;
+            text-align: right;
+        }
+
+        .bot {
+            margin-right: auto;
+            background: #fce7f3;
+            color: #831843;
+            text-align: left;
+        }
+
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #eee;
+            background: #fafafa;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            outline: none;
+            font-size: 0.9rem;
+            border-radius: 0;
+        }
+
+        .chat-input button {
+            background: #34d399;
+            border: none;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: bold;
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .chat-input button:hover {
+            background: #059669;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chat-container">
+        <div id="chatBox" class="chat-box"></div>
+        <div class="chat-input">
+            <input id="userInput" type="text" placeholder="Type your message..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chatBox = document.getElementById("chatBox");
+        const userInput = document.getElementById("userInput");
+
+        const responses = {
+            "hi": "Hello! 🌸 How are you feeling today?",
+            "hello": "Hi there! 😊 Let’s relax together.",
+            "how are you": "I’m calm and peaceful 🌿. How about you?",
+            "bye": "Goodbye! Take care of yourself 💙",
+            "stress": "Try closing your eyes, take a deep breath... inhale for 4, exhale for 4 🌬️",
+            "music": "Listening to soft music can melt stress away 🎶"
+        };
+
+        function sendMessage() {
+            const msg = userInput.value.trim().toLowerCase();
+            if (!msg) return;
+
+            appendMessage(msg, "user");
+
+            let reply = "I’m not sure, but remember — you’re doing great 💫";
+            for (let key in responses) {
+                if (msg.includes(key)) {
+                    reply = responses[key];
+                    break;
+                }
+            }
+
+            setTimeout(() => appendMessage(reply, "bot"), 600);
+            userInput.value = "";
+        }
+
+        function appendMessage(text, sender) {
+            const div = document.createElement("div");
+            div.className = `chat-message ${sender}`;
+            div.textContent = text;
+            chatBox.appendChild(div);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
+</body>
+
+</html>

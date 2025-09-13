@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Consultant Contact Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #4c6ef5;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding: 30px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .consultant-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .consultant-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .consultant-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .consultant-card h3 {
+            margin: 10px 0;
+            color: #4c6ef5;
+        }
+
+        .consultant-card p {
+            margin: 6px 0;
+            color: #555;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background: #51cf66;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: #2f9e44;
+        }
+    </style>
+</head>
+
+<body>
+    <header>Connect with Consultants</header>
+
+    <div class="container">
+        <h2>Available Consultants</h2>
+        <div class="consultant-list">
+
+            <div class="consultant-card">
+                <h3>Dr. XYZ </h3>
+                <p><strong>Specialization:</strong> Psychologist</p>
+                <p><strong>Availability:</strong> Mon–Fri, 10am–4pm</p>
+                <a class="contact-btn" href="mailto:anjali@example.com">Contact</a>
+            </div>
+
+            <div class="consultant-card">
+                <h3>Mr. ABC </h3>
+                <p><strong>Specialization:</strong> Student Counsellor</p>
+                <p><strong>Availability:</strong> Tue–Sat, 11am–5pm</p>
+                <a class="contact-btn" href="mailto:rajiv@example.com">Contact</a>
+            </div>
+
+            <div class="consultant-card">
+                <h3>Dr. XYZZ </h3>
+                <p><strong>Specialization:</strong> Psychiatrist</p>
+                <p><strong>Availability:</strong> Mon, Wed, Fri (2pm–6pm)</p>
+                <a class="contact-btn" href="mailto:neha@example.com">Contact</a>
+            </div>
+
+            <div class="consultant-card">
+                <h3>Dr. ABCC </h3>
+                <p><strong>Specialization:</strong> Clinical Psychologist</p>
+                <p><strong>Availability:</strong> Thu–Sat, 9am–1pm</p>
+                <a class="contact-btn" href="mailto:arjun@example.com">Contact</a>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Regional Songs & Dances — Stress Relief</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f9f9ff;
+            color: #333;
+        }
+
+        header {
+            background: #4f46e5;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        header p {
+            margin: 6px 0 0;
+            font-size: 0.95rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            padding: 15px;
+        }
+
+        .card h2 {
+            font-size: 1.1rem;
+            margin: 0 0 8px;
+            color: #4f46e5;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #eef2ff;
+            color: #333;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin: 5px 4px 0 0;
+        }
+
+        footer {
+            text-align: center;
+            color: #777;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        .search {
+            margin: 20px 0;
+            display: flex;
+            gap: 8px;
+        }
+
+        input[type='search'] {
+            flex: 1;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 8px 12px;
+            background: #4f46e5;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button.secondary {
+            background: #ddd;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Regional Songs & Dances</h1>
+        <p>Simple music and movement traditions to help ease stress</p>
+    </header>
+
+    <main class="container">
+        <div class="search">
+            <input id="search" type="search" placeholder="Search region or style..." />
+            <button id="clear" class="secondary">Clear</button>
+        </div>
+
+        <section class="grid" id="regions">
+            <article class="card region" data-keywords="north soothing raga folk">
+                <h2>North — Raga & Folk</h2>
+                <p>Slow, meditative ragas and soft folk tunes used for relaxation.</p>
+                <audio controls preload="none"></audio>
+                <span class="tag">soothing</span>
+                <span class="tag">meditative</span>
+            </article>
+
+            <article class="card region" data-keywords="south carnatic calming">
+                <h2>South — Carnatic & Folk</h2>
+                <p>Short Carnatic motifs and soft devotional songs to ground the mind.</p>
+                <audio controls preload="none"></audio>
+                <span class="tag">grounding</span>
+                <span class="tag">vocal</span>
+            </article>
+
+            <article class="card region" data-keywords="east baul bhawaiya">
+                <h2>East — Baul & Bhawaiya</h2>
+                <p>Repetitive, lyrical folk songs for mindful listening and gentle swaying.</p>
+                <audio controls preload="none"></audio>
+                <span class="tag">lyrical</span>
+                <span class="tag">gentle</span>
+            </article>
+
+            <article class="card region" data-keywords="west garba folk">
+                <h2>West — Folk Rhythms</h2>
+                <p>Slow Garba steps and coastal lullabies turned into calming movements.</p>
+                <audio controls preload="none"></audio>
+                <span class="tag">movement</span>
+                <span class="tag">rhythm</span>
+            </article>
+
+            <article class="card region" data-keywords="northeast flute chant">
+                <h2>North-East — Flute & Chant</h2>
+                <p>Airy flute tones and simple chants for quick mental resets.</p>
+                <audio controls preload="none"></audio>
+                <span class="tag">breathwork</span>
+                <span class="tag">airy</span>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        © 2025 — Regional Songs & Dances for Stress Relief
+    </footer>
+
+    <script>
+        const search = document.getElementById('search');
+        const regions = Array.from(document.querySelectorAll('.region'));
+        search.addEventListener('input', () => {
+            const q = search.value.trim().toLowerCase();
+            regions.forEach(r => {
+                const keys = r.dataset.keywords.toLowerCase();
+                r.style.display = q === '' || keys.includes(q) ? '' : 'none';
+            });
+        });
+        document.getElementById('clear').addEventListener('click', () => {
+            search.value = '';
+            search.dispatchEvent(new Event('input'));
+        });
+    </script>
+</body>
+
+</html>
