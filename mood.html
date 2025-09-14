@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Student Mood Check-in</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #a7c7e7, #f7d9e3, #c2f0c2);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            background: #ffffffee;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        h1 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .moods {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .mood-btn {
+            font-size: 2rem;
+            border: none;
+            background: #f0f0ff;
+            padding: 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .mood-btn:hover {
+            background: #e0e7ff;
+            transform: scale(1.1);
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #333;
+            min-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🌸 Student Mood Check-in 🌸</h1>
+        <p>How are you feeling today?</p>
+        <div class="moods">
+            <button class="mood-btn" onclick="showMood('😊')">😊</button>
+            <button class="mood-btn" onclick="showMood('😐')">😐</button>
+            <button class="mood-btn" onclick="showMood('😔')">😔</button>
+            <button class="mood-btn" onclick="showMood('😡')">😡</button>
+            <button class="mood-btn" onclick="showMood('😴')">😴</button>
+        </div>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        function showMood(mood) {
+            let message = "";
+            switch (mood) {
+                case "😊":
+                    message = "Great! Keep spreading positivity 🌟";
+                    break;
+                case "😐":
+                    message = "It's okay to feel neutral. Maybe try a short walk 🚶‍♂️";
+                    break;
+                case "😔":
+                    message = "Sorry to hear that 💜. Take a deep breath and talk to a friend.";
+                    break;
+                case "😡":
+                    message = "Anger is natural 😡💨. Try counting to 10 slowly and breathe.";
+                    break;
+                case "😴":
+                    message = "You must be tired 😴. Rest well and stay hydrated 💧.";
+                    break;
+            }
+            document.getElementById("message").textContent = message;
+        }
+    </script>
+</body>
+
+</html>
